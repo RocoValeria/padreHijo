@@ -1,0 +1,18 @@
+
+<form [formGroup]="padreForm" name="padreForm">
+    <div>
+        <h3>Nombre: </h3>
+        <input type="text" formControlName="nombre">
+        <h3>Apellido: </h3>
+        <input type="text" formControlName="apellido">
+        <h3>DNI: </h3>
+        <input type="text" formControlName="dni">
+        <h3>Edad: </h3>
+        <input type="text" formControlName="edad">
+    </div>
+</form>
+
+<br>
+<button (click)="setHijo()">Set Hijo</button>
+
+<app-hijo [objetoHijo]='padre'></app-hijo>

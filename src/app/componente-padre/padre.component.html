@@ -1,18 +1,63 @@
 
-<form [formGroup]="padreForm" name="padreForm">
-    <div>
-        <h3>Nombre: </h3>
-        <input type="text" formControlName="nombre">
-        <h3>Apellido: </h3>
-        <input type="text" formControlName="apellido">
-        <h3>DNI: </h3>
-        <input type="text" formControlName="dni">
-        <h3>Edad: </h3>
-        <input type="text" formControlName="edad">
-    </div>
-</form>
+<div class="contenedor">
+    <br><h1>Creador de Hijos</h1>
+    <!-- <form [formGroup]="padreForm" name="padreForm">
+        <br>   
+        <h2>Ingrese los datos del padre:</h2>
+        <form class="example-form">
+            <mat-form-field class="example-full-width">
+              <mat-label>Nombre</mat-label>
+              <textarea matInput placeholder="Ejemplo: Carlos" type="text" formControlName="nombre"></textarea>
+            </mat-form-field>
+        </form>
+        <form class="example-form">
+            <mat-form-field class="example-full-width">
+              <mat-label>Apellido</mat-label>
+              <textarea matInput placeholder="Ejemplo: Fernandez" type="text" formControlName="apellido"></textarea>
+            </mat-form-field>
+        </form>
+        <form class="example-form">
+            <mat-form-field class="example-full-width">
+              <mat-label>Numero de documento</mat-label>
+              <textarea matInput placeholder="Ejemplo: 14088531" type="text" formControlName="dni"></textarea>
+            </mat-form-field>
+        </form>
+        <form class="example-form">
+            <mat-form-field class="example-full-width">
+              <mat-label>Edad</mat-label>
+              <textarea matInput placeholder="Ejemplo: 56" type="text" formControlName="edad"></textarea>
+            </mat-form-field>
+        </form> 
+        <button class="botonnuevo" (click) = "setHijo()" mat-raised-button color="primary">Setear el hijo</button>
+        
+        <br>
+        <br> -->
+        
+          <mat-form-field appearance="fill">
+            <mat-label>Selecione Genero</mat-label>
+            <mat-select (selectionChange)="setGenero($event)">
+              <mat-option *ngFor="let genero of generos" [value]="genero.value">
+                {{genero.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
 
-<br>
-<button (click)="setHijo()">Set Hijo</button>
+          <br>
+          <div *ngIf="hijo">
+            <app-hijo></app-hijo>
+          </div>
 
-<app-hijo [objetoHijo]='padre'></app-hijo>
+          <br>
+          <div *ngIf="hija">
+            <app-hija></app-hija>
+          </div>
+
+
+
+        <br>
+    <!-- </form> -->
+ 
+</div>
+
+
+<!-- <app-hijo [objetoPadre]="padre"></app-hijo> -->
